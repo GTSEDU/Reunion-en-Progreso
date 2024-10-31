@@ -9,6 +9,10 @@ export default function Layout() {
         <main className="">
             <Outlet />
         </main>
+
+        <footer className="bg-slate-800 text-white text-center py-4">
+            <p>&copy; {new Date().getFullYear()} - Reunión en Progreso</p>
+        </footer>
     </>
   )
 }

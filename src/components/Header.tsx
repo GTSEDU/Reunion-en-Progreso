@@ -15,25 +15,25 @@ export default function Header() {
                     <NavLink 
                         to="/"
                         className={({ isActive }) =>
-                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600'}`
+                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600 cursor-pointer transition-colors'}`
                         }
                     >Inicio</NavLink>
                     <NavLink 
                         to="/agendar"
                         className={({ isActive }) =>
-                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600'}`
+                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600 cursor-pointer transition-colors'}`
                         }
                     >Agendar y Ver Reuniones</NavLink>
                     <NavLink 
                         to="/seguimiento"
                         className={({ isActive }) =>
-                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600'}`
+                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600 cursor-pointer transition-colors'}`
                         }
                     >Seguimiento de Compromisos</NavLink>
                     <NavLink 
                         to="/actas"
                         className={({ isActive }) =>
-                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600'}`
+                            `px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600 cursor-pointer transition-colors'}`
                         }
                     >Generación de Actas</NavLink>
                 </nav>
