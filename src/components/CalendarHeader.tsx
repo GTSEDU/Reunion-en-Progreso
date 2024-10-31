@@ -28,16 +28,16 @@ export default function CalendarHeader() {
         Hoy
       </button>
       <button onClick={() => handlePrevMonth()}>
-        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:bg-gray-100 rounded transition-colors">
-          &lt;
+        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:text-gray-400 transition-colors">
+          chevron_left
         </span>
       </button>
-      <h2 className="text-xl text-gray-500 font-bold w-40 text-center">
+      <h2 className="text-xl text-gray-500 font-bold w-40 text-center transform -translate-y-1.5">
         {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
       </h2>
       <button onClick={() => handleNextMonth()}>
-        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:bg-gray-100 rounded transition-colors">
-          &gt;
+        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:text-gray-400 transition-colors">
+          chevron_right
         </span>
       </button>
     </header>

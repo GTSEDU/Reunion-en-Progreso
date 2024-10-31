@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import { getMonth } from '../utils/util'
 import GlobalContext from '../context/GlobalContext'
 import React from 'react'
+import 'material-icons/iconfont/material-icons.css';
 
 export default function SmallCalendar() {
     const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month())
@@ -41,18 +42,18 @@ export default function SmallCalendar() {
     }
   return (
     <div className="mt-9">
-        <header className="flex justify-between">
-            <button onClick={() => handlePrevMonth()}>
-                <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:bg-gray-100 rounded transition-colors">
-                    &lt;
+        <header className="relative flex justify-center items-center">
+            <button onClick={() => handlePrevMonth()} className="absolute left-0">
+                <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:text-gray-400 transition-colors">
+                    chevron_left
                 </span>
             </button>
-            <p className="text-xl text-gray-500 font-bold w-40 text-center">
+            <p className="text-lg text-gray-500 font-bold w-40 text-center transform -translate-y-1">
                 {dayjs(new Date(dayjs().year(), currentMonthIndex)).format("MMMM YYYY")}
             </p>
-            <button onClick={() => handleNextMonth()}>
-                <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:bg-gray-100 rounded transition-colors">
-                &gt;
+            <button onClick={() => handleNextMonth()} className="absolute right-0">
+                <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2 hover:text-gray-400 transition-colors">
+                chevron_right
                 </span>
             </button>
         </header>
