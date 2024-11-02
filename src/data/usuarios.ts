@@ -3,47 +3,38 @@ import { Usuario } from '../types'
 export const usuarios : Usuario[] = [
     {
         id: 1,
-        name: 'Jose Ayala',
-        rol: 202173001-0
+        name: 'Jose Ayala'
     },
     {
         id: 2,
-        name: 'Sebastian Vargas',
-        rol: 202173002-1
+        name: 'Sebastian Vargas'
     },
     {
         id: 3,
-        name: 'Javier Araya',
-        rol: 202173003-2
+        name: 'Javier Araya'
     },
     {
         id: 4,
-        name: 'Juan Perez',
-        rol: 202173004-3
+        name: 'Juan Perez'
     },
     {
         id: 5,
-        name: 'Pedro Rodriguez',
-        rol: 202173005-4
+        name: 'Pedro Rodriguez'
     },
     {
         id: 6,
-        name: 'Carlos Soto',
-        rol: 202173006-5
+        name: 'Carlos Soto'
     },
     {
         id: 7,
-        name: 'Jorge Mora',
-        rol: 202173007-6
+        name: 'Jorge Mora'
     },
     {
         id: 8,
-        name: 'Luis Rojas',
-        rol: 202173008-7
+        name: 'Luis Rojas'
     },
     {
         id: 9,
-        name: 'Eduardo Mondaca',
-        rol: 202173506-2
+        name: 'Eduardo Mondaca'
     }
 ]

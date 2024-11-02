@@ -1,3 +1,4 @@
+import React from 'react'
 import dayjs from "dayjs"
 import Day from './Day'
 
@@ -9,7 +10,7 @@ export default function Month({ currentMonth } : MonthProps) {
   return (
     <div className="flex-1 grid grid-cols-7 grid-rows-5">
       {currentMonth.map((row, i) => (
-        <>
+        <React.Fragment key={i}>
           {row.map((day, idx) => (
             <Day
               key={idx}
@@ -17,7 +18,7 @@ export default function Month({ currentMonth } : MonthProps) {
               i={i}
             />
           ))}
-        </>
+        </React.Fragment>
       ))}
     </div>
   )
