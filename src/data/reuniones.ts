@@ -17,7 +17,7 @@ export const reuniones: CalendarEvent[] = [
         title: "Laboratorio de Física I",
         description: "Práctica de laboratorio para Física I",
         label: "bg-blue-500",
-        day: Date.now(), // Hoy
+        day: Date.now() - 2 * 24 * 60 * 60 * 1000, // Hoy
         startTime: "14:00",
         endTime: "16:00",
         users: ["Javier Araya", "Juan Perez", "Carlos Soto"],
@@ -28,7 +28,7 @@ export const reuniones: CalendarEvent[] = [
         title: "Taller de Introducción a la Física",
         description: "Taller para reforzar conceptos básicos",
         label: "bg-green-500",
-        day: Date.now() + 3 * 24 * 60 * 60 * 1000, // En 3 días
+        day: Date.now() - 3 * 24 * 60 * 60 * 1000, // Hace 3 días
         startTime: "09:00",
         endTime: "11:00",
         users: ["Pedro Rodriguez", "Jorge Mora"],
@@ -39,7 +39,7 @@ export const reuniones: CalendarEvent[] = [
         title: "Grupo de Estudio Matemáticas III",
         description: "Repaso de temas avanzados",
         label: "bg-purple-500",
-        day: Date.now() + 5 * 24 * 60 * 60 * 1000, // En 5 días
+        day: Date.now() - 5 * 24 * 60 * 60 * 1000, // Hace 5 días
         startTime: "18:00",
         endTime: "20:00",
         users: ["Jose Ayala", "Sebastian Vargas", "Javier Araya"],
@@ -50,7 +50,7 @@ export const reuniones: CalendarEvent[] = [
         title: "Preparación para examen de Física II",
         description: "Estudio en grupo para el examen de Física II",
         label: "bg-yellow-500",
-        day: Date.now() + 7 * 24 * 60 * 60 * 1000, // En 7 días
+        day: Date.now() - 7 * 24 * 60 * 60 * 1000, // Hace 7 días
         startTime: "13:00",
         endTime: "15:30",
         users: ["Juan Perez", "Pedro Rodriguez"],

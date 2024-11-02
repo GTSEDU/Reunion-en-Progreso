@@ -2,6 +2,7 @@ import { useState, useEffect, useReducer } from 'react'
 import GlobalContext from './GlobalContext'
 import dayjs from 'dayjs'
 import { CalendarEvent } from "../types"
+import { reuniones } from '../data/reuniones'
 
 type Action = {
   type: 'push' | 'update' | 'delete';
@@ -22,18 +23,20 @@ function savedEventsReducer(state: CalendarEvent[], { type, payload }: Action): 
 }
 
 function initEvents() {
-  const storageEvents = localStorage.getItem('savedEvents')
-  const parsedEvents = storageEvents ? JSON.parse(storageEvents) : []
-  return parsedEvents
+  const savedEvents = localStorage.getItem("savedEvents");
+  if (savedEvents) {
+    return JSON.parse(savedEvents); // Cargar desde localStorage si existe
+  }
+  return reuniones; // Si no, cargar datos de prueba
 }
 
 export default function ContextWrapper(props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined }) {
 
     const [monthIndex, setMonthIndex] = useState(dayjs().month())
-    const [smallCalendarMonth, setSmallCalendarMonth] = useState(null)
-    const [daySelected, setDaySelected] = useState(dayjs())
+    const [smallCalendarMonth, setSmallCalendarMonth] = useState<number | null>(null)
+    const [daySelected, setDaySelected] = useState<dayjs.Dayjs | null>(dayjs())
     const [showEventModal, setShowEventModal] = useState(false)
-    const [selectedEvent, setSelectedEvent] = useState(null)
+    const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null)
     const [savedEvents, dispatchCalEvent] = useReducer(savedEventsReducer, [], initEvents)
 
     useEffect(() => {
