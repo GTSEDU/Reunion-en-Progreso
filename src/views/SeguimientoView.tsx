@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import EventCard from '../components/EventCard'
 
 export default function SeguimientoView() {
   return (
@@ -14,41 +14,37 @@ export default function SeguimientoView() {
               {/* Sección de tarjetas */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                 {/* Tarjeta 1 */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h2 className="flex items-center justify-center text-lg font-bold mb-2">INF-322</h2>
-                  <p className='flex items-center justify-center'>Dia: Viernes</p>
-                  <p className='flex items-center justify-center py-5'>Fecha: 06/09/2024</p>
-                  <Link to="/ruta" className="flex items-center justify-center mx-auto bg-gray-700 hover:bg-gray-800 rounded-lg text-white p-2 w-3/4">
-                    Registro del compromiso
-                  </Link>
-                </div>
+                <EventCard
+                  title="INF-322"
+                  day="Viernes"
+                  date="06/09/2024"
+                  linkPath="/ruta"
+                  buttonText="Registro del compromiso"
+                />
                 {/* Tarjeta 2 */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h2 className="flex items-center justify-center text-lg font-bold mb-2">INF-221</h2>
-                  <p className='flex items-center justify-center'>Dia: Martes</p>
-                  <p className='flex items-center justify-center py-5'>Fecha: 10/09/2024</p>
-                  <Link to="/ruta" className="flex items-center justify-center mx-auto bg-gray-700 hover:bg-gray-800 rounded-lg text-white p-2 w-3/4">
-                    Registro del compromiso
-                  </Link>
-                </div>
+                <EventCard
+                  title="INF-221"
+                  day="Martes"
+                  date="10/09/2024"
+                  linkPath="/ruta"
+                  buttonText="Registro del compromiso"
+                />
                 {/* Tarjeta 3 */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h2 className="flex items-center justify-center text-lg font-bold mb-2">MAT-024</h2>
-                  <p className='flex items-center justify-center'>Dia: Jueves</p>
-                  <p className='flex items-center justify-center py-5'>Fecha: 12/09/2024</p>
-                  <Link to="/ruta" className="flex items-center justify-center mx-auto bg-gray-700 hover:bg-gray-800 rounded-lg text-white p-2 w-3/4">
-                    Registro del compromiso
-                  </Link>
-                </div>
+                <EventCard
+                  title="MAT-024"
+                  day="Jueves"
+                  date="12/09/2024"
+                  linkPath="/ruta"
+                  buttonText="Registro del compromiso"
+                />
                 {/* Tarjeta 4 */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h2 className="flex items-center justify-center text-lg font-bold mb-2">INF-293</h2>
-                  <p className='flex items-center justify-center'>Dia: Jueves</p>
-                  <p className='flex items-center justify-center py-5'>Fecha: 26/09/2024</p>
-                  <Link to="/ruta" className="flex items-center justify-center mx-auto bg-gray-700 hover:bg-gray-800 rounded-lg text-white p-2 w-3/4">
-                    Registro del compromiso
-                  </Link>
-                </div>
+                <EventCard
+                  title="INF-293"
+                  day="Jueves"
+                  date="26/09/2024"
+                  linkPath="/ruta"
+                  buttonText="Registro del compromiso"
+                />
               </div>
             </div>
           </div>
