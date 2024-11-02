@@ -30,12 +30,6 @@ export default function Header() {
                             `flex items-center justify-center px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600 cursor-pointer transition-colors'}`
                         }
                     >Seguimiento de Compromisos</NavLink>
-                    <NavLink 
-                        to="/actas"
-                        className={({ isActive }) =>
-                            `flex items-center justify-center px-4 py-2 ${isActive ? 'bg-orange-700 text-white uppercase font-bold' : 'text-white uppercase font-bold hover:bg-orange-600 cursor-pointer transition-colors'}`
-                        }
-                    >Generación de Actas</NavLink>
                 </nav>
             </div>
         </div>

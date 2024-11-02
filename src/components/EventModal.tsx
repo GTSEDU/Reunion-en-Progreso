@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import GlobalContext from "../context/GlobalContext"
 import { CalendarEvent } from "../types"
 import { usuarios } from "../data/usuarios"

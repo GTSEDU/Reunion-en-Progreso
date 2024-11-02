@@ -19,3 +19,9 @@ export type CalendarEvent = {
     users: string[];
     ramo: string | null;
 }
+
+export type Compromiso = {
+    id: number;
+    resumen: string;
+    integrantes: { nombre: string, compromiso: string }[];
+}

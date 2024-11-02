@@ -17,7 +17,7 @@ export const reuniones: CalendarEvent[] = [
         title: "Laboratorio de Física I",
         description: "Práctica de laboratorio para Física I",
         label: "bg-blue-500",
-        day: Date.now() - 2 * 24 * 60 * 60 * 1000, // Hoy
+        day: Date.now() - 2 * 24 * 60 * 60 * 1000, // Hace 2 días
         startTime: "14:00",
         endTime: "16:00",
         users: ["Javier Araya", "Juan Perez", "Carlos Soto"],
