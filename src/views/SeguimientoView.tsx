@@ -29,6 +29,7 @@ export default function SeguimientoView() {
                 {reuniones.map((reunion,i) =>(
                   <EventCard
                     key={i}
+                    cardId={i}
                     title={reunion.title}
                     date={formatear_fecha(reunion.day ? reunion.day : 0)}
                     buttonText='Registro de compromiso'

@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import jsPDF from 'jspdf';
 
 interface EventCardProps {
+    cardId: number;
     title: string;
     date: string;
     buttonText: string;
     resumen: string;
-    integrantes: { nombre: string, compromiso: string }[];
+    integrantes: { nombre: string, compromiso: string; completado: boolean }[];
   }
   
 
-  export default function EventCard({ title, date, buttonText, resumen, integrantes }: EventCardProps) {
+  export default function EventCard({ cardId, title, date, buttonText, resumen, integrantes }: EventCardProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => {
@@ -45,14 +46,18 @@ interface EventCardProps {
       
       <div className="flex flex-col gap-2 mt-4">
           {/* Botón principal */}
-          <Link to="#" className="bg-gray-800 text-white py-2 px-4 rounded-md text-center">
-              {buttonText}
+          <Link
+            to="/RegistroCompromiso"
+            state={{ title, date, integrantes, cardId }}
+            className="flex items-center justify-center mx-auto bg-gray-700 hover:bg-gray-800 rounded-lg text-white p-2 w-full"
+          >
+            {buttonText}
           </Link>
 
           {/* Botón para abrir el modal */}
           <button 
               onClick={openModal} 
-              className="bg-gray-800 text-white py-2 px-4 rounded-md text-center"
+              className="bg-gray-700 hover:bg-gray-800 text-white py-2 px-4 rounded-md text-center"
           >
               Generación de actas
           </button>

@@ -23,5 +23,5 @@ export type CalendarEvent = {
 export type Compromiso = {
     id: number;
     resumen: string;
-    integrantes: { nombre: string, compromiso: string }[];
+    integrantes: { nombre: string, compromiso: string, completado: boolean }[];
 }

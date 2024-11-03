@@ -7,11 +7,13 @@ export const compromisos : Compromiso[] = [
         integrantes: [
             {
                 nombre: "José Ayala",
-                compromiso: "Preparar material de estudio para la próxima reunión."
+                compromiso: "Preparar material de estudio para la próxima reunión.",
+                completado: true
             },
             {
                 nombre: "Sebastián Vargas",
-                compromiso: "Investigar sobre algebra."
+                compromiso: "Investigar sobre algebra.",
+                completado: false
             }
         ]
     },
@@ -21,15 +23,18 @@ export const compromisos : Compromiso[] = [
         integrantes: [
             {
                 nombre: "Javier Araya",
-                compromiso: "Elaborar informe del experimento."
+                compromiso: "Elaborar informe del experimento.",
+                completado: false
             },
             {
                 nombre: "Juan Pérez",
-                compromiso: "Preparar presentación de resultados."
+                compromiso: "Preparar presentación de resultados.",
+                completado: false
             },
             {
                 nombre: "Carlos Soto",
-                compromiso: "Recopilar datos del experimento."
+                compromiso: "Recopilar datos del experimento.",
+                completado: false
             }
         ]
     },
@@ -39,11 +44,13 @@ export const compromisos : Compromiso[] = [
         integrantes: [
             {
                 nombre: "Pedro Rodríguez",
-                compromiso: "Preparar material de estudio sobre cinemática."
+                compromiso: "Preparar material de estudio sobre cinemática.",
+                completado: false
             },
             {
                 nombre: "Jorge Mora",
-                compromiso: "Investigar sobre dinámica."
+                compromiso: "Investigar sobre dinámica.",
+                completado: false
             }
         ]
     },
@@ -53,15 +60,18 @@ export const compromisos : Compromiso[] = [
         integrantes: [
             {
                 nombre: "José Ayala",
-                compromiso: "Preparar material de estudio para el próximo encuentro."
+                compromiso: "Preparar material de estudio para el próximo encuentro.",
+                completado: false
             },
             {
                 nombre: "Sebastián Vargas",
-                compromiso: "Investigar sobre cálculo integral."
+                compromiso: "Investigar sobre cálculo integral.",
+                completado: false
             },
             {
                 nombre: "Javier Araya",
-                compromiso: "Resolver problemas de cálculo diferencial."
+                compromiso: "Resolver problemas de cálculo diferencial.",
+                completado: false
             }
         ]
     },
@@ -71,11 +81,13 @@ export const compromisos : Compromiso[] = [
         integrantes: [
             {
                 nombre: "Juan Pérez",
-                compromiso: "Preparar material de estudio sobre dinámica."
+                compromiso: "Preparar material de estudio sobre dinámica.",
+                completado: false
             },
             {
                 nombre: "Pedro Rodríguez",
-                compromiso: "Investigar sobre energía."
+                compromiso: "Investigar sobre energía.",
+                completado: false
             }
         ]
     }

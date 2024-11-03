@@ -3,6 +3,7 @@ import Layout from './layouts/Layout';
 import IndexView from './views/IndexView';
 import AgendarView from './views/AgendarView';
 import SeguimientoView from './views/SeguimientoView';
+import RegistroCompromisoView from './views/RegistroCompromisoView';
 
 export default function AppRouter() {
   return (
@@ -12,6 +13,7 @@ export default function AppRouter() {
           <Route path="/" element={<IndexView />} index />
           <Route path="/agendar" element={<AgendarView />} />
           <Route path="/seguimiento" element={<SeguimientoView />} />
+          <Route path="/RegistroCompromiso" element={<RegistroCompromisoView />} />
         </Route>
       </Routes>
     </BrowserRouter>
