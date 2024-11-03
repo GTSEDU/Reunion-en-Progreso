@@ -1,6 +1,18 @@
 import EventCard from '../components/EventCard'
+import { reuniones } from '../data/reuniones';
+import { compromisos } from '../data/compromisos';
+
 
 export default function SeguimientoView() {
+  function formatear_fecha(fecha:number){
+    const day = new Date(fecha);
+    const formattedDate = day.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    return formattedDate
+  }
   return (
     <>
       <div className="bg-slate-500 min-h-screen flex justify-center p-10 md:p-15">
@@ -11,40 +23,20 @@ export default function SeguimientoView() {
               Compromisos de la reunión (últimos 7 días) 
             </h1>
             <div className="flex items-center justify-center w-full bg-gray-400 p-8 rounded-lg">
+              
               {/* Sección de tarjetas */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                {/* Tarjeta 1 */}
-                <EventCard
-                  title="INF-322"
-                  day="Viernes"
-                  date="06/09/2024"
-                  linkPath="/ruta"
-                  buttonText="Registro del compromiso"
-                />
-                {/* Tarjeta 2 */}
-                <EventCard
-                  title="INF-221"
-                  day="Martes"
-                  date="10/09/2024"
-                  linkPath="/ruta"
-                  buttonText="Registro del compromiso"
-                />
-                {/* Tarjeta 3 */}
-                <EventCard
-                  title="MAT-024"
-                  day="Jueves"
-                  date="12/09/2024"
-                  linkPath="/ruta"
-                  buttonText="Registro del compromiso"
-                />
-                {/* Tarjeta 4 */}
-                <EventCard
-                  title="INF-293"
-                  day="Jueves"
-                  date="26/09/2024"
-                  linkPath="/ruta"
-                  buttonText="Registro del compromiso"
-                />
+                {reuniones.map((reunion,i) =>(
+                  <EventCard
+                    key={i}
+                    title={reunion.title}
+                    date={formatear_fecha(reunion.day ? reunion.day : 0)}
+                    buttonText='Registro de compromiso'
+                    resumen={compromisos[i].resumen}
+                    integrantes={compromisos[i].integrantes}
+                  />
+
+                ))}
               </div>
             </div>
           </div>
