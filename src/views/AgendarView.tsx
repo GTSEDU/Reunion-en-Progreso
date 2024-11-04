@@ -17,7 +17,7 @@ export default function AgendarView() {
   return (
     <>
       {showEventModal && <EventModal />}
-      <div className="h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">
           <Sidebar />

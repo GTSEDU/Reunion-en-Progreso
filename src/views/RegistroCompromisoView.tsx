@@ -77,7 +77,7 @@ export default function RegistroCompromisoView() {
                                     ))}
                                 {/* Botón para regresar a SeguimientoView */}
                                 <button
-                                    className="mt-8 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
+                                    className="mt-8 px-4 py-2 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
                                     onClick={() => navigate('/seguimiento')}
                                 >
                                     Volver a Registro de reuniones

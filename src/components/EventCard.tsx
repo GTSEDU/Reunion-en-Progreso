@@ -92,7 +92,7 @@ interface EventCardProps {
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
                   <h2 className="text-2xl font-bold mb-4">Registro de Actas</h2>
-                  <p className="mb-6">{resumen}</p>
+                  <p className="mb-6 max-h-40 overflow-y-auto">{resumen}</p>
                   <form>
                       <div className="mb-4">
                           <label className="block text-gray-700 text-sm font-bold mb-2">
