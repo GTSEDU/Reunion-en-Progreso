@@ -23,20 +23,44 @@ interface EventCardProps {
         setIsModalOpen(false);
     };
     const generatePDF = () => {
-      const doc = new jsPDF();
-      doc.setFontSize(16);
-      doc.text(`Reunion: ${title}`, 10, 10);
-      doc.setFontSize(12);
-      doc.text(`Resumen: ${resumen}`, 10, 20, { maxWidth: 180 });
-      // Agregar integrantes y compromisos
-      let yPosition = 30;
-      integrantes.forEach((integrante, index) => {
-          doc.text(`${index + 1}. ${integrante.nombre}: ${integrante.compromiso}`, 10, yPosition);
-          yPosition += 10;
-      });
+        // Recuperar los datos de `localStorage`
+        const savedTasks = localStorage.getItem(`tasks-${cardId}`);
+        const tasks = savedTasks ? JSON.parse(savedTasks) : [];
 
-      // Guardar el PDF
-      doc.save(`${title}.pdf`);
+        // Combinar los datos de `integrantes` con el estado de `localStorage`
+        const combinedIntegrantes = integrantes.map((integrante, index) => {
+            const task = tasks.find((t: { text: string; completed: boolean }) => 
+                t.text === `${integrante.nombre}: ${integrante.compromiso}`
+            );
+            return {
+                ...integrante,
+                completado: task ? task.completed : integrante.completado,
+            };
+        });
+
+        const doc = new jsPDF();
+        doc.setFontSize(16);
+        doc.text(`Reunion: ${title}`, 10, 10);
+        doc.setFontSize(12);
+        doc.text(`Resumen: ${resumen}`, 10, 20, { maxWidth: 180 });
+        const resumenText = `Resumen: ${resumen}`;
+        const resumenDimensions = doc.getTextDimensions(resumenText, { maxWidth:180 });
+        // Agregar integrantes, compromisos y estado
+        let yPosition = 20 + resumenDimensions.h + 10;
+        combinedIntegrantes.forEach((integrante, index) => {
+            const estado = integrante.completado ? "Cumplido" : "Pendiente";
+            
+            // Texto del compromiso
+            doc.text(`${index + 1}. ${integrante.nombre}: ${integrante.compromiso}`, 10, yPosition);
+
+            // Estado del compromiso alineado a la derecha
+            doc.text(`Estado: ${estado}`, 160, yPosition);
+
+            yPosition += 10;
+        });
+
+        // Guardar el PDF
+        doc.save(`${title}.pdf`);
     };
 
     return (
@@ -59,7 +83,7 @@ interface EventCardProps {
               onClick={openModal} 
               className="bg-gray-700 hover:bg-gray-800 text-white py-2 px-4 rounded-md text-center"
           >
-              Generación de actas
+              Registro de actas
           </button>
       </div>
 
@@ -67,7 +91,7 @@ interface EventCardProps {
       {isModalOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-                  <h2 className="text-2xl font-bold mb-4">Generación de Actas</h2>
+                  <h2 className="text-2xl font-bold mb-4">Registro de Actas</h2>
                   <p className="mb-6">{resumen}</p>
                   <form>
                       <div className="mb-4">
@@ -89,7 +113,7 @@ interface EventCardProps {
                               onClick={generatePDF} 
                               className="bg-blue-500 text-white py-2 px-4 rounded-md mr-2"
                           >
-                              Descargar PDF
+                              Generacion de actas (pdf)
                           </button>
                           <button 
                               type="button" 

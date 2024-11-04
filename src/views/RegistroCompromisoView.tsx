@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 interface Integrante {
@@ -15,6 +15,7 @@ interface Task {
 
 export default function RegistroCompromisoView() {
     const location = useLocation();
+    const navigate = useNavigate()
     const { title, date, integrantes, cardId }: { title: string; date: string; integrantes: Integrante[]; cardId: string } = location.state || {};
 
     const initialTasks = integrantes
@@ -70,9 +71,17 @@ export default function RegistroCompromisoView() {
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                     </svg>
                                                 )}
+                                                
                                             </div>
                                         </div>
                                     ))}
+                                {/* Botón para regresar a SeguimientoView */}
+                                <button
+                                    className="mt-8 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
+                                    onClick={() => navigate('/seguimiento')}
+                                >
+                                    Volver a Registro de reuniones
+                                </button>
                                 </div>
                             </div>
                         </div>
