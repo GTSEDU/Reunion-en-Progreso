@@ -20,7 +20,7 @@ export default function SeguimientoView() {
           {/* Sección de texto con recuadro */}
           <div className="w-full bg-gray-300 p-6 rounded-lg">
             <h1 className="flex items-center justify-center text-xl font-bold bg-gray-700 text-white p-2 rounded-lg mb-6">
-              Compromisos de la reunión (últimos 7 días) 
+              Registro de reuniones (últimos 7 días) 
             </h1>
             <div className="flex items-center justify-center w-full bg-gray-400 p-8 rounded-lg">
               
