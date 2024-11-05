@@ -2,12 +2,13 @@ import dayjs from "dayjs"
 import { useContext, useEffect, useState } from "react"
 import GlobalContext from "../context/GlobalContext"
 import { CalendarEvent } from "../types"
-import { set } from "react-hook-form"
 
 type DayProps = {
     day: dayjs.Dayjs
     i: number
 }
+
+type TooltipPosition = { top: number; left: number };
 
 export default function Day({ day, i } : DayProps) {
 
@@ -22,6 +23,20 @@ export default function Day({ day, i } : DayProps) {
         const events = savedEvents.filter(evt => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY"))
         setDayEvents(events)
     }, [savedEvents, day])
+
+    const [hoveredEvent, setHoveredEvent] = useState<CalendarEvent | null>(null);
+    const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ top: 0, left: 0 });
+
+    // Función para mostrar el tooltip al pasar el mouse
+    const handleMouseEnter = (event: CalendarEvent, e: React.MouseEvent) => {
+        setHoveredEvent(event);
+        setTooltipPosition({ top: e.clientY + 10, left: e.clientX + 10 });
+    };
+
+    // Función para ocultar el tooltip
+    const handleMouseLeave = () => {
+        setHoveredEvent(null);
+    };
 
   return (
     <div className="border border-gray-200 flex flex-col hover:border-blue-600 transition-colors">
@@ -39,12 +54,27 @@ export default function Day({ day, i } : DayProps) {
                 <div 
                     key={i}
                     onClick={() => setSelectedEvent(evt)}
+                    onMouseEnter={(e) => handleMouseEnter(evt, e)}
+                    onMouseLeave={handleMouseLeave}
                     className={`${evt.label} p-1 text-sm rounded mb-1 truncate w-11/12 inline-block`}
                 >
                     {evt.title}
                 </div>
             ))}
         </div>
+        {hoveredEvent && (
+            <div
+                style={{ top: tooltipPosition.top, left: tooltipPosition.left }}
+                className="absolute z-50 bg-white border border-gray-300 shadow-lg p-4 rounded-md w-60"
+            >
+                <h3 className="font-semibold text-lg">{hoveredEvent.title}</h3>
+                <p className="text-sm text-gray-600 mb-2">{hoveredEvent.description}</p>
+                <p><strong>Hora de inicio:</strong> {hoveredEvent.startTime}</p>
+                <p><strong>Hora de término:</strong> {hoveredEvent.endTime}</p>
+                <p><strong>Integrantes:</strong> {hoveredEvent.users.join(", ")}</p>
+                <p><strong>Ramo:</strong> {hoveredEvent.ramo}</p>
+            </div>
+        )}
     </div>
   )
 }

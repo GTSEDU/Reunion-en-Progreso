@@ -9,7 +9,7 @@ export default function IndexView() {
           <div className="bg-gray-300 p-12 rounded-lg md:w-1/2">
             <h1 className="text-5xl font-bold bg-gray-700 text-white p-8 rounded-lg mb-10">Reunión en Progreso</h1>
             <p className="text-2xl text-gray-800 leading-relaxed">
-              Reunión en progreso es un servicio de software diseñado para optimizar la gestión de reuniones de proyecto de feria presenciales. A través de tecnologías como el reconocimiento de voz y la búsqueda inteligente, permite automatizar la generación de actas, registrar compromisos por voz, y seguir el progreso de estos compromisos de manera eficiente, reduciendo el tiempo y esfuerzo que usualmente conllevan estas tareas.
+            Reunión en Progreso es un software creado para optimizar la gestión de reuniones de proyectos y de asignaturas académicas, facilitando tanto encuentros presenciales como de otras modalidades. A través de herramientas como el reconocimiento de voz, automatiza la creación de actas, permite registrar compromisos mediante comandos de voz y realizar un seguimiento eficaz de los mismos, minimizando el tiempo y esfuerzo que generalmente requieren estas tareas.
             </p>
           </div>
 

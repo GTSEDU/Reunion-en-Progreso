@@ -12,11 +12,13 @@ export default function Month({ currentMonth } : MonthProps) {
       {currentMonth.map((row, i) => (
         <React.Fragment key={i}>
           {row.map((day, idx) => (
+            <>
             <Day
               key={idx}
               day={day}
               i={i}
             />
+            </>
           ))}
         </React.Fragment>
       ))}
