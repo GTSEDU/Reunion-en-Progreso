@@ -4,6 +4,8 @@ import IndexView from './views/IndexView';
 import AgendarView from './views/AgendarView';
 import SeguimientoView from './views/SeguimientoView';
 import RegistroCompromisoView from './views/RegistroCompromisoView';
+import GenerarCompromisoView from './views/GenerarCompromisoView';
+import SpeechToTextView from './views/SpeechToTextView';
 
 export default function AppRouter() {
   return (
@@ -13,7 +15,9 @@ export default function AppRouter() {
           <Route path="/" element={<IndexView />} index />
           <Route path="/agendar" element={<AgendarView />} />
           <Route path="/seguimiento" element={<SeguimientoView />} />
+          <Route path="/GenerarCompromiso" element={<GenerarCompromisoView />} />
           <Route path="/RegistroCompromiso" element={<RegistroCompromisoView />} />
+          <Route path="/SpeechToText" element={<SpeechToTextView />} />
         </Route>
       </Routes>
     </BrowserRouter>

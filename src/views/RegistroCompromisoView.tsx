@@ -9,6 +9,8 @@ interface Integrante {
 
 interface Task {
     id: number;
+    nombre: string;
+    compromiso: string;
     text: string;
     completed: boolean;
 }
@@ -21,6 +23,8 @@ export default function RegistroCompromisoView() {
     const initialTasks = integrantes
         ? integrantes.map((integrante, index) => ({
             id: index,
+            nombre: integrante.nombre,
+            compromiso: integrante.compromiso,
             text: `${integrante.nombre}: ${integrante.compromiso}`,
             completed: integrante.completado,
         }))
@@ -57,7 +61,7 @@ export default function RegistroCompromisoView() {
                                     {tasks.map(task => (
                                         <div key={task.id} className="flex items-center justify-between mb-4 cursor-pointer" onClick={() => handleTaskChange(task.id)}>
                                             <span className={`text-xl ${task.completed ? 'text-gray-500' : ''}`}>
-                                                {task.text}
+                                                {`${task.nombre}: ${task.compromiso}`}
                                             </span>
                                             <div className={`w-8 h-8 flex items-center justify-center border-2 rounded-lg ${task.completed ? 'bg-green-500' : 'bg-gray-500'} ml-6`}>
                                                 {task.completed && (

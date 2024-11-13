@@ -6,6 +6,7 @@ export default function Header() {
     const navItems = [
         { name: 'Inicio', path: '/' },
         { name: 'Agendar y Ver Reuniones', path: '/agendar' },
+        { name: 'Generar Compromiso', path: '/GenerarCompromiso' },
         { name: 'Registro de Reuniones', path: '/seguimiento' },
     ];
 

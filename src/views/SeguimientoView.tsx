@@ -2,6 +2,13 @@ import EventCard from '../components/EventCard'
 import { reuniones } from '../data/reuniones';
 import { compromisos } from '../data/compromisos';
 
+interface Task {
+  id: number;
+  text: string;
+  nombre: string;
+  compromiso: string;
+  completed: boolean;
+}
 
 export default function SeguimientoView() {
   function formatear_fecha(fecha:number){
@@ -13,6 +20,7 @@ export default function SeguimientoView() {
     });
     return formattedDate
   }
+
   return (
     <>
       <div className="bg-slate-500 min-h-screen flex justify-center p-10 md:p-15">
@@ -26,18 +34,28 @@ export default function SeguimientoView() {
               
               {/* Sección de tarjetas */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                {reuniones.map((reunion,i) =>(
-                  <EventCard
-                    key={i}
-                    cardId={i}
-                    title={reunion.title}
-                    date={formatear_fecha(reunion.day ? reunion.day : 0)}
-                    buttonText='Registro de compromiso'
-                    resumen={compromisos[i].resumen}
-                    integrantes={compromisos[i].integrantes}
-                  />
+              {reuniones.map((reunion, i) => {
+                const savedTasksString = localStorage.getItem(`tasks-6`);
+                const savedTasks = savedTasksString ? JSON.parse(savedTasksString) : null;
 
-                ))}
+                const allCompromisosEmpty = savedTasks ? savedTasks.every((task : Task) => task.compromiso === "") : true;
+
+                if (allCompromisosEmpty && reunion.id === 6) {
+                  return null
+                }
+
+                return (
+                    <EventCard
+                        key={i}
+                        cardId={reunion.id}
+                        title={reunion.title}
+                        date={formatear_fecha(reunion.day ? reunion.day : 0)}
+                        buttonText="Registro de compromiso"
+                        resumen={compromisos[i].resumen}
+                        integrantes={compromisos[i].integrantes}
+                    />
+                );
+            })}
               </div>
             </div>
           </div>

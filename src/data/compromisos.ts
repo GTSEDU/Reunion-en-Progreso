@@ -90,5 +90,13 @@ export const compromisos : Compromiso[] = [
                 completado: false
             }
         ]
+    },
+    {
+        id: 6,
+        resumen: 'En esta reunión dedicada a la Feria de Software, se discutieron los aspectos claves de la planificación y organización del evento, incluyendo la selección de los proyectos a presentar, la logística del evento y las estrategias para atraer la participación del público. Durante la sesión, se analizaron diferentes propuestas para mejorar la presentación de los proyectos y se discutieron métodos para asegurar una experiencia fluida tanto para los participantes como para los asistentes. José Ayala se comprometió a coordinar con los expositores y asegurar los recursos necesarios, mientras que Eduardo Mondaca se encargará de gestionar toda la logística del evento. La reunión concluyó con una revisión del cronograma, estableciendo fechas límite para cada tarea, con el objetivo de asegurar el éxito del evento.',
+        integrantes: [
+            { nombre: "José Ayala", compromiso: "", completado: false },
+            { nombre: "Eduardo Mondaca", compromiso: "", completado: false }
+        ]
     }
 ]

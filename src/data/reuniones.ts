@@ -55,5 +55,16 @@ export const reuniones: CalendarEvent[] = [
         endTime: "15:30",
         users: ["Juan Perez", "Pedro Rodriguez"],
         ramo: "Física II"
+    },
+    {
+        id: 6,
+        title: "Reunión de Feria de Software",
+        description: "Planificación de la feria de software",
+        label: "bg-orange-500",
+        day: Date.now() - 3 * 24 * 60 * 60 * 1000, // Hace 3 días
+        startTime: "10:00",
+        endTime: "11:30",
+        users: ["Jose Ayala", "Eduardo Mondaca"],
+        ramo: "Feria de Software"
     }
 ];
