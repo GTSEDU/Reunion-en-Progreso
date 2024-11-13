@@ -5,14 +5,15 @@ interface EventCardProps {
     title: string;
     date: string;
     buttonText: string;
+    bgColour: string;
     integrantes: { nombre: string, compromiso: string; completado: boolean }[];
   }
   
 
-  export default function EventCard({ cardId, title, date, buttonText, integrantes }: EventCardProps) {
+  export default function EventCard({ cardId, title, date, buttonText, integrantes, bgColour }: EventCardProps) {
 
     return (
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className={`${bgColour} bg-opacity-90 border-2 border-gray-800 p-4 rounded-lg shadow-md `}>
       <h2 className="flex items-center justify-center text-lg font-bold mb-2">{title}</h2>
       <p className="flex items-center justify-center">Fecha: {date}</p>
       

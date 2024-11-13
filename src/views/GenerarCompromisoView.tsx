@@ -37,6 +37,7 @@ export default function GenerarCompromisoView() {
                             title={reunion.title}
                             date={formatear_fecha(reunion.day ? reunion.day : 0)}
                             buttonText="Generar Compromiso"
+                            bgColour={reunion.label}
                             integrantes={compromisos[i].integrantes}
                         />
                     );

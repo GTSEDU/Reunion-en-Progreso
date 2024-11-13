@@ -87,6 +87,7 @@ export default function SeguimientoView() {
                     date={formatear_fecha(reunion.day ? reunion.day : 0)}
                     buttonText="Registro de compromiso"
                     resumen={compromiso?.resumen || ''}
+                    bgColour={reunion.label}
                     integrantes={compromiso?.integrantes || []}
                     />
                 );
