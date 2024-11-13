@@ -26,39 +26,46 @@ interface EventCardProps {
         // Recuperar los datos de `localStorage`
         const savedTasks = localStorage.getItem(`tasks-${cardId}`);
         const tasks = savedTasks ? JSON.parse(savedTasks) : [];
-
-        // Combinar los datos de `integrantes` con el estado de `localStorage`
+    
+        // Combinar los datos de `integrantes` con el estado y compromiso de `localStorage`
         const combinedIntegrantes = integrantes.map((integrante, index) => {
-            const task = tasks.find((t: { text: string; completed: boolean }) => 
+            const task = tasks.find((t: { text: string; compromiso: string; completed: boolean }) => 
                 t.text === `${integrante.nombre}: ${integrante.compromiso}`
             );
+    
+            // Recuperar el compromiso y el estado de completado desde el local storage
+            const compromisoLocal = task ? task.compromiso : integrante.compromiso;
+            const completadoLocal = task ? task.completed : integrante.completado;
+    
             return {
                 ...integrante,
-                completado: task ? task.completed : integrante.completado,
+                compromiso: compromisoLocal,
+                completado: completadoLocal,
             };
         });
-
+    
         const doc = new jsPDF();
         doc.setFontSize(16);
         doc.text(`Reunion: ${title}`, 10, 10);
         doc.setFontSize(12);
         doc.text(`Resumen: ${resumen}`, 10, 20, { maxWidth: 180 });
         const resumenText = `Resumen: ${resumen}`;
-        const resumenDimensions = doc.getTextDimensions(resumenText, { maxWidth:180 });
+        const resumenDimensions = doc.getTextDimensions(resumenText, { maxWidth: 180 });
+    
         // Agregar integrantes, compromisos y estado
         let yPosition = 20 + resumenDimensions.h + 10;
         combinedIntegrantes.forEach((integrante, index) => {
             const estado = integrante.completado ? "Cumplido" : "Pendiente";
-            
-            // Texto del compromiso
+    
+            // Texto del compromiso recuperado del local storage
             doc.text(`${index + 1}. ${integrante.nombre}: ${integrante.compromiso}`, 10, yPosition);
-
+    
             // Estado del compromiso alineado a la derecha
             doc.text(`Estado: ${estado}`, 160, yPosition);
-
+    
             yPosition += 10;
         });
-
+    
         // Guardar el PDF
         doc.save(`${title}.pdf`);
     };
@@ -99,12 +106,27 @@ interface EventCardProps {
                               Integrantes y Compromisos
                           </label>
                           <ul className="list-disc pl-5">
-                              {integrantes.map((integrante, index) => (
-                                  <li key={index}>
-                                      <strong>{integrante.nombre}:</strong> {integrante.compromiso}
-                                  </li>
-                              ))}
-                          </ul>
+                            {integrantes.map((integrante, index) => {
+                                    // Obtener los datos del local storage
+                                    const savedTasksString = localStorage.getItem(`tasks-${cardId}`);
+                                    const savedTasks = savedTasksString ? JSON.parse(savedTasksString) : [];
+
+                                    // Buscar el task correspondiente en el local storage
+                                    const task = savedTasks.find((t: { text: string; compromiso: string; completed: boolean }) => 
+                                        t.text === `${integrante.nombre}: ${integrante.compromiso}`
+                                    );
+
+                                    // Extraer el compromiso y el estado desde el local storage
+                                    const compromisoLocal = task ? task.compromiso : integrante.compromiso;
+                                    const estadoLocal = task ? (task.completed ? "Cumplido" : "Pendiente") : "Pendiente";
+
+                                    return (
+                                        <li key={index}>
+                                            <strong>{integrante.nombre}:</strong> {compromisoLocal} 
+                                        </li>
+                                    );
+                                })}
+                            </ul>
                       </div>
                       <div className="flex justify-end mt-4">
                           {/* Botón para generar PDF */}
