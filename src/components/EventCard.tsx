@@ -29,7 +29,7 @@ interface EventCardProps {
         const tasks = savedTasks ? JSON.parse(savedTasks) : [];
     
         // Combinar los datos de `integrantes` con el estado y compromiso de `localStorage`
-        const combinedIntegrantes = integrantes.map((integrante, index) => {
+        const combinedIntegrantes = integrantes.map((integrante/*, index*/) => {
             const task = tasks.find((t: { text: string; compromiso: string; completed: boolean }) => 
                 t.text === `${integrante.nombre}: ${integrante.compromiso}`
             );
@@ -119,7 +119,7 @@ interface EventCardProps {
 
                                     // Extraer el compromiso y el estado desde el local storage
                                     const compromisoLocal = task ? task.compromiso : integrante.compromiso;
-                                    const estadoLocal = task ? (task.completed ? "Cumplido" : "Pendiente") : "Pendiente";
+                                    /*const estadoLocal = task ? (task.completed ? "Cumplido" : "Pendiente") : "Pendiente";*/
 
                                     return (
                                         <li key={index}>
