@@ -23,3 +23,9 @@ Para luego ir a este localhost:
 ```js
 http://localhost:5173/
 ```
+
+o directamente accediendo a esta página:
+
+```js
+https://joyful-paprenjak-7dc38e.netlify.app/
+```
